@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchWeathers } from '../features/weatherSlice'
 import { useEffect } from 'react'
 
+import { MarginDiv } from '../styles/StyledComponent'
 import Grid from '@mui/material/Grid'
-import Rating from '@mui/material/Rating'
+// import Rating from '@mui/material/Rating'
 
 function WeatherDetail() {
    const { cityName } = useParams()
@@ -20,14 +21,21 @@ function WeatherDetail() {
 
    return (
       <MarginDiv>
-         {WeatherDetails && (
-            <Grid container>
-               <Grid size={9}>
-                  <h2></h2>
-               </Grid>
-               <Grid size={3}></Grid>
+         {/* {WeatherDetails && ( */}
+         <Grid container>
+            <Grid size={9}>
+               <h2>도시 이름</h2>
+               <p>온도</p>
+               <p>날씨 상태 눈 비 등</p>
+               <p>습도</p>
+               <p>흐림 정도</p>
+               <p>강수량</p>
             </Grid>
-         )}
+            <Grid size={3}>
+               <p>아이콘</p>
+            </Grid>
+         </Grid>
+         {/* )} */}
       </MarginDiv>
    )
 }

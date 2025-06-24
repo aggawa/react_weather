@@ -11,3 +11,8 @@ export const Main = styled.main`
    overflow: hidden;
    padding: ${(props) => props.$padding || 0};
 `
+
+export const MarginDiv = styled.div`
+   margin-top: ${(props) => props.$marginTop || '40px'};
+   margin-bottom: ${(props) => props.$marginBottom || '40px'};
+`

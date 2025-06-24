@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getWeathers } from '../api/weatherApi'
 
-export const fetchWeathers = createAsyncThunk('weathers/fetchWeathers', async () => {
-   const responsse = await getWeathers()
+export const fetchWeathers = createAsyncThunk('weathers/fetchWeathers', async (cityName) => {
+   const responsse = await getWeathers(cityName)
    console.log(responsse)
+   return responsse.data.results
 })
 
 const weatherSlice = createSlice({
@@ -11,10 +12,9 @@ const weatherSlice = createSlice({
    initialState: {
       weathers: [],
       weatherDetails: null,
-      whetherHumidity: null,
       error: null,
    },
-   reducer: {},
+   reducers: {},
    extraReducers: (builder) => {
       builder
          .addCase(fetchWeathers.pending, (state) => {

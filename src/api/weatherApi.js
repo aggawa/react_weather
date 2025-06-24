@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'https://api.openweathermap.org/data/2.5/'
+const BASE_URL = 'https://api.openweathermap.org/data/2.5'
 
 const AUTH_KEY = import.meta.env.VITE_TMDB_API_KEY
 
@@ -13,9 +13,10 @@ const weatherApi = axios.create({
 })
 
 // 지금 날씨 불러오기
-export const getWeathers = async (cityName) => {
-   const responsse = await weatherApi.get(`weather?q=${cityName}`, {
+export const getWeathers = async () => {
+   const responsse = await weatherApi.get(`/weather`, {
       params: {
+         q: `${cityName}`,
          appid: `${AUTH_KEY}`,
          units: 'metric',
          lang: 'kr',
