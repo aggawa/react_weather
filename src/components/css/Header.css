@@ -13,14 +13,14 @@ nav {
 div {
    position: fixed;
    width: 100%;
-   background-color: #62cbff;
+   /* background-color: #62cbff; */
    height: 120px;
    z-index: 99999;
 }
 
 div h2 {
    width: 66.66%;
-   margin: 0 auto;
+   /* margin: 0 auto; */
    display: block;
    color: white;
    float: left;

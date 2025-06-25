@@ -7,18 +7,6 @@ weather
 whyd_o@naver.com
 940303oz123
 
-Examples - https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=914d4580a2615003c209c03c5423b16a
-
-지금 날씨
-https://api.openweathermap.org/data/2.5/weather?q=incheon&appid=914d4580a2615003c209c03c5423b16a&units=metric&lang=kr
-https://api.openweathermap.org/data/2.5/weather?q=seoul&appid=914d4580a2615003c209c03c5423b16a&units=metric&lang=kr
-https://api.openweathermap.org/data/2.5/weather?q=busan&appid=914d4580a2615003c209c03c5423b16a&units=metric&lang=kr
-
-5일치
-https://api.openweathermap.org/data/2.5/forecast?q=incheon&appid=914d4580a2615003c209c03c5423b16a&units=metric&lang=kr
-https://api.openweathermap.org/data/2.5/forecast?q=seoul&appid=914d4580a2615003c209c03c5423b16a&units=metric&lang=kr
-https://api.openweathermap.org/data/2.5/forecast?q=busan&appid=914d4580a2615003c209c03c5423b16a&units=metric&lang=kr
-
 아이콘
 01d <- 말고 종류 많이있음
 https://openweathermap.org/img/wn/01d.png
@@ -30,3 +18,8 @@ https://openweathermap.org/img/wn/ + ~~ + .png
 경로 -> 화면 이름 / 경로 이런식으로
 화면설계 제출 후 코드 작성
 figma - 공유하기 - copy link - 슬랙으로 제출 / 어떤 난이도 할지 같이 작성해서 제출하기
+
+css 수정
+이상해벌인 class들은 어디서 왔는가
+
+왜 겹치지?

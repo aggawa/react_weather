@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchWeathers } from '../features/weatherSlice'
+import { fetchWeatherDetails } from '../features/weatherSlice'
 import { useEffect } from 'react'
 
 import { MarginDiv } from '../styles/StyledComponent'
@@ -14,17 +14,17 @@ function WeatherDetail() {
 
    useEffect(() => {
       if (cityName) {
-         dispatch(fetchWeathers(cityName))
+         dispatch(fetchWeatherDetails(cityName))
       }
    }, [dispatch, cityName])
    if (error) return <p>Error:{error}</p>
 
    return (
-      <MarginDiv>
+      <MarginDiv $marginTop="10px">
          {/* {WeatherDetails && ( */}
          <Grid container>
             <Grid size={9}>
-               <h2>도시 이름</h2>
+               <h3>도시 이름</h3>
                <p>온도</p>
                <p>날씨 상태 눈 비 등</p>
                <p>습도</p>
