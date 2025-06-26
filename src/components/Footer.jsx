@@ -3,7 +3,7 @@ import './css/Footer.css'
 function Footer() {
    return (
       <footer>
-         <p>날씨</p>
+         <p>weather today</p>
       </footer>
    )
 }

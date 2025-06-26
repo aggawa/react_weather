@@ -9,10 +9,10 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 function WeatherCard({ weathers }) {
-   const cityNames = ['seoul', 'incheon', 'busan', 'jeju']
+   const cityNames = ['seoul', 'incheon', 'busan', 'jeju', 'daegu', 'gangneung']
 
    const dispatch = useDispatch()
-   const { WeatherDetails, error } = useSelector((state) => state.weathers)
+   const { weatherDetails, error } = useSelector((state) => state.weathers)
 
    useEffect(() => {
       for (city of cityNames) {
@@ -24,17 +24,21 @@ function WeatherCard({ weathers }) {
 
    return (
       <Grid container spacing={2.5}>
-         {/* {weathers.map((weather) => (
-            <Grid size={2.4} key={weather.id}>
-               <Link to={`/detail/${weather.id}`}>
-                  <Grid></Grid>
+         {cityNames.map((cityName) => (
+            <Grid size={2.4} key={cityName.name}>
+               <Link to={`/weather/${cityName.name}`} style={{ textDecoration: 'none' }}>
+                  <Card>
+                     <Typography>{cityName.name}</Typography>
+                     <CardContent>
+                        <Typography>{cityName.main.temp}</Typography>
+                        <CardMedia image={'https://openweathermap.org/img/wn/' + weatherDetails.weather[0].icon + '@2x.png'} />
+                     </CardContent>
+                  </Card>
                </Link>
             </Grid>
-         ))} */}
+         ))}
       </Grid>
    )
 }
 
 export default WeatherCard
-
-// 여기까지 했음 / 정보 못 불러옴 / 방식부터가 잘못됨 / 뜯어고쳐야함

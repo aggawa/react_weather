@@ -1,8 +1,5 @@
 header {
    margin-bottom: 57px;
-}
-
-nav {
    position: fixed;
    width: 100%;
    background-color: #62cbff;
@@ -10,9 +7,13 @@ nav {
    z-index: 99999;
 }
 
-div {
+nav {
+   width: 80%;
+}
+
+header.nav.div {
    position: fixed;
-   width: 100%;
+   width: 80%;
    /* background-color: #62cbff; */
    height: 120px;
    z-index: 99999;
@@ -20,8 +21,8 @@ div {
 
 div h2 {
    width: 66.66%;
-   /* margin: 0 auto; */
-   display: block;
+   margin: 0 auto;
+   line-height: 120px;
    color: white;
-   float: left;
+   font-size: 36px;
 }

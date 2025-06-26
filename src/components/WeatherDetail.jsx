@@ -7,10 +7,12 @@ import { MarginDiv } from '../styles/StyledComponent'
 import Grid from '@mui/material/Grid'
 // import Rating from '@mui/material/Rating'
 
+import './css/WeatherDetail.css'
+
 function WeatherDetail() {
    const { cityName } = useParams()
    const dispatch = useDispatch()
-   const { WeatherDetails, error } = useSelector((state) => state.weathers)
+   const { weatherDetails, error } = useSelector((state) => state.weathers)
 
    useEffect(() => {
       if (cityName) {
@@ -19,20 +21,22 @@ function WeatherDetail() {
    }, [dispatch, cityName])
    if (error) return <p>Error:{error}</p>
 
+   console.log(weatherDetails)
+
    return (
       <MarginDiv $marginTop="10px">
          {/* {WeatherDetails && ( */}
          <Grid container>
             <Grid size={9}>
-               <h3>도시 이름</h3>
-               <p>온도</p>
-               <p>날씨 상태 눈 비 등</p>
-               <p>습도</p>
-               <p>흐림 정도</p>
-               <p>강수량</p>
+               <h3>{weatherDetails.name}</h3>
+               <p>온도: {weatherDetails.main.temp}</p>
+               <p>체감 온도: {weatherDetails.main.feels_like}</p>
+               <p>날씨 상태: {weatherDetails.weather[0].description}</p>
+               <p>습도: {weatherDetails.main.humidity}%</p>
+               <p>흐림 정도: {weatherDetails.clouds.all}</p>
             </Grid>
             <Grid size={3}>
-               <p>아이콘</p>
+               <img src={'https://openweathermap.org/img/wn/' + weatherDetails.weather[0].icon + '@2x.png'} alt={weatherDetails.weather[0].description} />
             </Grid>
          </Grid>
          {/* )} */}
