@@ -21,4 +21,17 @@ export const getWeatherDetails = async (cityName = 'seoul') => {
    return responsse
 }
 
+// 카드 디테일에 쓰일 데이터 불러오기
+export const getCardDetails = async (city = 'seoul') => {
+   const responsse = await weatherApi.get(`/weather`, {
+      params: {
+         q: `${city}`,
+         appid: `${AUTH_KEY}`,
+         units: 'metric',
+         lang: 'kr',
+      },
+   })
+   return responsse
+}
+
 export default weatherApi
