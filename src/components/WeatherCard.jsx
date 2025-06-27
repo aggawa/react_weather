@@ -14,20 +14,27 @@ function WeatherCard() {
    const dispatch = useDispatch()
    const { cardDetails, error } = useSelector((state) => state.weathers)
 
-   if (cardDetails) {
-      console.log(cardDetails)
-
-      setCityWeather((prevState) => [...prevState, cardDetails])
-   }
+   // 렌더링 중 state 변경 시 에러
+   // if (cardDetails) {
+   //    setCityWeather((prevState) => [...prevState, cardDetails])
+   // }
 
    useEffect(() => {
       const cityNames = ['seoul', 'busan', 'incheon', 'daegu', 'jeju', 'daejeon', 'gwangju', 'suwon', 'ulsan', 'gangneung']
 
       for (const city of cityNames) {
          dispatch(fetchCardDetails(city))
-         // console.log(city)
       }
    }, [dispatch])
+
+   // cardDetails가 바뀔때만 실행
+   useEffect(() => {
+      if (cardDetails) {
+         console.log(cardDetails)
+         setCityWeather((prevState) => [...prevState, cardDetails])
+      }
+   }, [cardDetails])
+
    if (error) return <p>Error:{error}</p>
 
    // 배열로 / 개별로 나오기에 다른곳에 저장해둬야함
@@ -35,11 +42,17 @@ function WeatherCard() {
    return (
       <Grid container spacing={2.5}>
          {cityWeather.map((cardDetails) => (
-            <Card size={2.4} key={cardDetails.name}>
+            <Grid size={2.4} key={cardDetails.name}>
                <Card sx={{ maxWidth: 345 }}>
                   <CardContent>{cardDetails.name}</CardContent>
+                  <CardContent>
+                     <Typography>{cardDetails.main.temp}</Typography>
+                     <Typography>
+                        <img src={'https://openweathermap.org/img/wn/' + cardDetails.weather[0].icon + '.png'} alt={cardDetails.weather[0].description} />
+                     </Typography>
+                  </CardContent>
                </Card>
-            </Card>
+            </Grid>
          ))}
          {/* <Grid>{cardDetails.name}</Grid> */}
       </Grid>
