@@ -3,7 +3,6 @@ import { getWeatherDetails, getCardDetails } from '../api/weatherApi'
 
 export const fetchWeatherDetails = createAsyncThunk('weathers/fetchWeatherDetails', async (cityName) => {
    const response = await getWeatherDetails(cityName)
-   // console.log(response.data)
    return response.data
 })
 
